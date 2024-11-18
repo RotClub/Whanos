@@ -1,10 +1,6 @@
 name: Common - Mirror to Epitech Repository
 on:
   push:
-    branches:
-      - dev
-      - main
-      - WH-*
 
 env:
   DEST_REPO: git@github.com:EpitechPromo2027/B-DOP-500-TLS-5-1-whanos-theo.bary.git
