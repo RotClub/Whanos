@@ -1,0 +1,17 @@
+FROM maven:3.9.9-eclipse-temurin-21-alpine
+
+WORKDIR /build
+
+RUN apk add --no-cache bash
+
+SHELL ["/bin/bash", "-c"]
+
+COPY ./app/pom.xml .
+
+COPY ./app/src ./src
+
+RUN mvn package
+
+RUN cp ./target/app.jar .
+
+CMD ["java", "-jar", "app.jar"]

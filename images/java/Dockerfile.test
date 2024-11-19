@@ -1,0 +1,13 @@
+FROM whanos-java
+
+WORKDIR /app
+
+COPY ./tests/java/pom.xml .
+
+COPY ./tests/java/src ./src
+
+RUN mvn package
+
+RUN cp ./target/app.jar .
+
+CMD ["java", "-jar", "app.jar"]
