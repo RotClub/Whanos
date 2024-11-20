@@ -1,0 +1,11 @@
+FROM whanos-c
+
+WORKDIR /app
+
+COPY ./tests/c/Makefile .
+
+COPY ./tests/c/app ./app
+
+RUN make
+
+CMD ["./compiled-app"]
