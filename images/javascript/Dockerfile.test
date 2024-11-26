@@ -2,10 +2,4 @@ FROM whanos-javascript
 
 WORKDIR /app
 
-COPY ./tests/javascript/package.json .
-
-COPY ./tests/javascript/app ./app
-
-RUN ["npm", "i"]
-
 CMD ["node", "."]

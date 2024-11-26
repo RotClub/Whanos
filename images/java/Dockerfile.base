@@ -5,3 +5,11 @@ WORKDIR /app
 RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-c"]
+
+ONBUILD COPY ./app/pom.xml .
+
+ONBUILD COPY ./app/src ./src
+
+ONBUILD RUN mvn package
+
+ONBUILD RUN cp ./target/app.jar .

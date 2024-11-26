@@ -5,3 +5,9 @@ WORKDIR /app
 RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-c"]
+
+ONBUILD COPY ./tests/javascript/package.json .
+
+ONBUILD COPY ./tests/javascript/app ./app
+
+ONBUILD RUN ["npm", "i"]

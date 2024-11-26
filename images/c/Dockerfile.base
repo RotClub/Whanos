@@ -3,3 +3,9 @@ FROM gcc:13.3
 WORKDIR /app
 
 SHELL ["/bin/bash", "-c"]
+
+ONBUILD COPY ./Makefile .
+
+ONBUILD COPY ./app/app ./app
+
+ONBUILD RUN make && make fclean
