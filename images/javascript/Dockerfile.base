@@ -1,7 +1,15 @@
 FROM node:20.9-alpine
 
-WORKDIR /app
-
 RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-c"]
+
+ONBUILD WORKDIR /app
+
+ONBUILD COPY ./package.json .
+
+ONBUILD COPY ./package-lock.json .
+
+ONBUILD COPY ./app ./app
+
+ONBUILD RUN ["npm", "i"]
