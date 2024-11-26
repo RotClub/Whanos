@@ -1,5 +1,14 @@
 FROM gcc:13.3
 
+SHELL ["/bin/bash", "-c"]
+
 WORKDIR /app
 
-SHELL ["/bin/bash", "-c"]
+COPY ./Makefile .
+
+COPY ./app ./app
+
+ONBUILD RUN make && make clean
+
+ONBUILD RUN find . -name "*.c" -type f -delete
+ONBUILD RUN find . -name "*.h" -type f -delete
