@@ -4,9 +4,9 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /app
 
-COPY ./Makefile .
+ONBUILD COPY ./Makefile .
 
-COPY ./app ./app
+ONBUILD COPY ./app ./app
 
 ONBUILD RUN make && make clean
 
