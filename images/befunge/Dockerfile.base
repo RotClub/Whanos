@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+WORKDIR /app
+
+RUN apk add --no-cache bash
+
+SHELL ["/bin/bash", "-c"]
+
+ONBUILD RUN apk add --no-cache make git gcc musl-dev
+
+ONBUILD RUN git clone https://git.catseye.tc/Befunge-93 .
+
+ONBUILD RUN make bin/bef
+
+ONBUILD RUN mv /build/bin/bef /usr/bin/bef

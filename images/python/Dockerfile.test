@@ -1,0 +1,11 @@
+FROM whanos-python
+
+WORKDIR /app
+
+COPY ./tests/python/requirements.txt .
+
+COPY ./tests/python/app ./app
+
+RUN pip install -r requirements.txt
+
+CMD ["python", "-m", "app"]

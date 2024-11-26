@@ -1,0 +1,5 @@
+FROM gcc:13.3
+
+WORKDIR /app
+
+SHELL ["/bin/bash", "-c"]
