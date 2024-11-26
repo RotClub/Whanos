@@ -6,8 +6,8 @@ RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-c"]
 
-ONBUILD COPY ./tests/javascript/package.json .
+COPY ./app/package.json .
 
-ONBUILD COPY ./tests/javascript/app ./app
+COPY ./app/app ./app
 
 ONBUILD RUN ["npm", "i"]

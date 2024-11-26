@@ -6,9 +6,9 @@ RUN apk add --no-cache bash
 
 SHELL ["/bin/bash", "-c"]
 
-ONBUILD COPY ./app/pom.xml .
+COPY ./app/pom.xml .
 
-ONBUILD COPY ./app/src ./src
+COPY ./app/src ./src
 
 ONBUILD RUN mvn package
 
