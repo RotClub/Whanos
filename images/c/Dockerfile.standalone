@@ -8,6 +8,9 @@ COPY ./Makefile .
 
 COPY ./app ./app
 
-RUN make
+RUN make && make clean
+
+RUN find . -name "*.c" -type f -delete
+RUN find . -name "*.h" -type f -delete
 
 CMD ["./compiled-app"]
